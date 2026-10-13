@@ -6,11 +6,12 @@ import { weddingData } from "@/config/weddingData";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MinangCorner, BaliCorner, SuntiangIcon, KambojaFlower } from "@/components/ui/MinangOrnaments";
+import { getAssetUrl } from "@/lib/utils";
 
 function ProfileImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
     <img
-      src={src}
+      src={getAssetUrl(src)}
       alt={alt}
       className={className}
       loading="eager"

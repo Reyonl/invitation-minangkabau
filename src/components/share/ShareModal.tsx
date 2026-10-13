@@ -19,7 +19,7 @@ export function ShareModal({ isOpen, onClose }: ShareModalProps) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setOrigin(window.location.origin);
+      setOrigin(window.location.origin + (process.env.NEXT_PUBLIC_BASE_PATH || ""));
     }
   }, []);
 

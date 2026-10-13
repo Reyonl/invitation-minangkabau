@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Disc3, VolumeX, Music } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { weddingData } from "@/config/weddingData";
-import { cn } from "@/lib/utils";
+import { cn, getAssetUrl } from "@/lib/utils";
 
 interface AudioPlayerProps {
   shouldPlay: boolean;
@@ -51,7 +51,7 @@ export function AudioPlayer({ shouldPlay }: AudioPlayerProps) {
     <>
       <audio
         ref={audioRef}
-        src={weddingData.audio.url}
+        src={getAssetUrl(weddingData.audio.url)}
         preload="metadata"
         loop
       />
