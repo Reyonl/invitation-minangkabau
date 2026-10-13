@@ -1,10 +1,7 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { PucuakRebuangDivider } from "@/components/ui/MinangOrnaments";
-import { TypewriterEffect } from "./TypewriterEffect";
 
 interface SectionHeaderProps {
   subtitle?: string;
@@ -12,6 +9,7 @@ interface SectionHeaderProps {
   description?: string;
   align?: "center" | "left" | "right";
   className?: string;
+  culturalTheme?: "minang" | "bali";
 }
 
 const containerVariants = {
@@ -73,7 +71,7 @@ export function SectionHeader({
         variants={itemVariants}
         className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] text-white font-light"
       >
-        <TypewriterEffect text={title} speed={40} delay={200} />
+        {title}
       </motion.h2>
 
       <motion.div variants={dividerVariants} className="origin-center my-4">

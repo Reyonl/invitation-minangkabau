@@ -36,6 +36,15 @@ const config: Config = {
             muted: "#5C4F4F",
           },
         },
+        // Balinese Traditional Palette
+        bali: {
+          terracotta: {
+            light: "#F09177",
+            DEFAULT: "#C86241",
+            dark: "#9E3C22",
+          },
+          gold: "#E2B855",
+        },
         wedding: {
           ivory: "#FDFBF7",
           linen: "#F8F3EC",

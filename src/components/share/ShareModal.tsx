@@ -212,7 +212,7 @@ export function ShareFloatingButton({ onClick }: { onClick: () => void }) {
     <button
       onClick={onClick}
       aria-label="Bagikan Undangan"
-      className="fixed bottom-[4.5rem] sm:bottom-6 left-4 sm:left-6 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full glass-panel-maroon text-minang-gold-light border border-minang-gold/60 shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-xl text-xs font-semibold tracking-wider uppercase group"
+      className="fixed bottom-[4.5rem] sm:bottom-6 left-4 sm:left-6 z-40 flex items-center justify-center gap-2 w-11 h-11 sm:w-auto sm:px-4 sm:py-2.5 rounded-full glass-panel-maroon text-minang-gold-light border border-minang-gold/60 shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-xl text-xs font-semibold tracking-wider uppercase group"
     >
       <Share2 className="w-4 h-4 text-minang-gold-light group-hover:rotate-12 transition-transform" />
       <span className="hidden sm:inline">Bagikan Undangan</span>

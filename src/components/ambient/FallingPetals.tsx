@@ -16,14 +16,14 @@ interface Petal {
 
 export function FallingPetals() {
   const petals: Petal[] = useMemo(() => {
-    return Array.from({ length: 18 }).map((_, i) => ({
+    return Array.from({ length: 7 }).map((_, i) => ({
       id: i,
-      left: Math.random() * 96 + 2,
-      size: Math.random() * 12 + 10,
-      duration: Math.random() * 10 + 10,
-      delay: Math.random() * 8,
-      swayDuration: Math.random() * 3 + 3,
-      opacity: Math.random() * 0.35 + 0.3,
+      left: Math.random() * 92 + 4,
+      size: Math.random() * 8 + 10,
+      duration: Math.random() * 8 + 14,
+      delay: Math.random() * 6,
+      swayDuration: Math.random() * 2 + 4,
+      opacity: Math.random() * 0.2 + 0.15,
       rotate: Math.random() * 360,
       colorVariant: i % 3 === 0 ? "maroon" : i % 2 === 0 ? "gold" : "amber",
     }));
@@ -45,10 +45,15 @@ export function FallingPetals() {
         }
         @keyframes sway {
           0%, 100% {
-            transform: translateX(-15px) rotate(-10deg);
+            transform: translateX(-12px) rotate(-8deg);
           }
           50% {
-            transform: translateX(15px) rotate(15deg);
+            transform: translateX(12px) rotate(12deg);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          div {
+            display: none !important;
           }
         }
       `}</style>

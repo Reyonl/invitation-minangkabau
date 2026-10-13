@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Send, CheckCircle2, MessageSquareHeart, Users, Check, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { MinangCorner } from "@/components/ui/MinangOrnaments";
+import { MinangCorner, BaliCorner } from "@/components/ui/MinangOrnaments";
 
 interface WishItem {
   id: string;
@@ -57,6 +57,11 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Parallax for decorative ornaments
+  const { scrollYProgress } = useScroll();
+  const parallaxYMinang = useTransform(scrollYProgress, [0, 1], [0, -12]);
+  const parallaxYBali = useTransform(scrollYProgress, [0, 1], [0, -8]);
+
   useEffect(() => {
     if (defaultGuestName && defaultGuestName !== "Tamu Undangan") {
       setName(defaultGuestName);
@@ -91,7 +96,7 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
       const updated = [newWish, ...wishes];
       setWishes(updated);
       try {
-        localStorage.setItem("wedding_wishes_diah_aryana", JSON.stringify(updated));
+        localStorage.setItem("wedding_wishes_diah_made", JSON.stringify(updated));
       } catch (err) {
         console.error("Failed to save to local storage:", err);
       }
@@ -120,8 +125,12 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative lg:col-span-6 p-8 sm:p-10 rounded-3xl glass-panel-maroon border border-minang-gold/45 shadow-2xl"
           >
-            <MinangCorner position="top-left" color="#E8CE75" className="absolute top-4 left-4" />
-            <MinangCorner position="top-right" color="#E8CE75" className="absolute top-4 right-4" />
+            <motion.div style={{ y: parallaxYMinang }}>
+              <MinangCorner position="top-left" color="#E8CE75" className="absolute top-4 left-4" />
+            </motion.div>
+            <motion.div style={{ y: parallaxYMinang }}>
+              <MinangCorner position="top-right" color="#E8CE75" className="absolute top-4 right-4" />
+            </motion.div>
 
             <h3 className="font-serif text-2xl text-white font-medium mb-2">
               Konfirmasi Kehadiran
@@ -170,9 +179,11 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
                     Konfirmasi Kehadiran
                   </label>
                   <div className="grid grid-cols-2 gap-3">
-                    <button
+                    <motion.button
                       type="button"
                       onClick={() => setAttendance("hadir")}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                         attendance === "hadir"
                           ? "bg-gold-gradient text-minang-charcoal font-semibold border-minang-gold-light shadow-md"
@@ -181,10 +192,12 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
                     >
                       <Check className="w-4 h-4" />
                       <span>Ya, Insya Allah Hadir</span>
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       type="button"
                       onClick={() => setAttendance("tidak_hadir")}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                         attendance === "tidak_hadir"
                           ? "bg-gold-gradient text-minang-charcoal font-semibold border-minang-gold-light shadow-md"
@@ -193,13 +206,17 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
                     >
                       <X className="w-4 h-4" />
                       <span>Maaf, Belum Bisa</span>
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
 
                 {/* Guest Count Selection */}
                 {attendance === "hadir" && (
-                  <div className="animate-fade-in">
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <label className="block text-xs font-semibold uppercase tracking-wider text-minang-gold-light mb-1.5">
                       Jumlah Tamu
                     </label>
@@ -216,7 +233,7 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
                       </select>
                       <Users className="w-4 h-4 text-minang-gold-light absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Message / Prayer Textarea */}
@@ -247,20 +264,26 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
             )}
           </motion.div>
 
-          {/* Wishes List Board Column (Maroon Glass with Motion) */}
+          {/* Wishes List Board Column (Bali fusion Glass with Motion) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 flex flex-col h-full p-8 sm:p-10 rounded-3xl glass-panel-maroon border border-minang-gold/45 shadow-2xl"
+            className="relative lg:col-span-6 flex flex-col h-full p-8 sm:p-10 rounded-3xl glass-panel-bali border border-bali-terracotta/50 shadow-2xl"
           >
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-minang-gold/30">
-              <div className="flex items-center gap-2 text-minang-gold-light">
-                <MessageSquareHeart className="w-5 h-5 text-minang-gold-light" />
+            <motion.div style={{ y: parallaxYBali }} className="absolute top-4 left-4">
+              <BaliCorner position="top-left" color="#E07A5F" />
+            </motion.div>
+            <motion.div style={{ y: parallaxYBali }} className="absolute top-4 right-4">
+              <BaliCorner position="top-right" color="#E07A5F" />
+            </motion.div>
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-bali-terracotta/30">
+              <div className="flex items-center gap-2 text-bali-terracotta-light">
+                <MessageSquareHeart className="w-5 h-5 text-bali-terracotta-light" />
                 <h3 className="font-serif text-2xl font-medium text-white">Doa Restu</h3>
               </div>
-              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-black/40 text-minang-gold-light border border-minang-gold/40">
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-black/40 text-bali-terracotta-light border border-bali-terracotta/40">
                 {wishes.length} Pesan
               </span>
             </div>
@@ -268,8 +291,13 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
             {/* Scrollable List */}
             <div className="flex-1 space-y-4 max-h-[280px] sm:max-h-[480px] overflow-y-auto pr-2">
               {wishes.map((item) => (
-                <div
+                <motion.div
                   key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 25 }}
                   className="p-4 rounded-2xl bg-black/35 border border-minang-gold/30 hover:border-minang-gold/60 transition-colors shadow-sm"
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
@@ -294,7 +322,7 @@ export function RsvpSection({ defaultGuestName }: RsvpSectionProps) {
                   <span className="block text-[10px] text-minang-gold-light/70 mt-2 text-right">
                     {item.createdAt}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

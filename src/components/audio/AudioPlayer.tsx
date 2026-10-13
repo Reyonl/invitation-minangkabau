@@ -102,7 +102,7 @@ export function AudioPlayer({ shouldPlay }: AudioPlayerProps) {
               "relative w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 shadow-xl cursor-pointer",
               isPlaying
                 ? "bg-minang-maroon text-minang-gold-light border-2 border-minang-gold"
-                : "bg-white text-minang-maroon border border-minang-gold hover:bg-minang-cream-soft"
+                : "bg-minang-maroon-deep/90 text-minang-cream/80 border border-minang-gold/50 hover:text-white backdrop-blur-md"
             )}
           >
             {isPlaying ? (

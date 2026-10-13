@@ -77,6 +77,19 @@ body {
   color: #FDFBF7;
 }
 
+/* Balinese Glassmorphism Utility */
+.glass-panel-bali {
+  background: linear-gradient(135deg, rgba(82, 30, 20, 0.88) 0%, rgba(48, 12, 16, 0.94) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(224, 122, 95, 0.42);
+  box-shadow:
+    0 20px 50px -15px rgba(0, 0, 0, 0.65),
+    0 4px 16px -4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(240, 145, 119, 0.2),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
 /* Minang Gold Gradient Utilities */
 .text-gold-gradient {
   background: linear-gradient(135deg, #FFF0B8 0%, #E8CE75 40%, #D4AF37 70%, #A88850 100%);

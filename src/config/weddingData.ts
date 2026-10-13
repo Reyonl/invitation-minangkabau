@@ -44,6 +44,7 @@ export interface BankGift {
 export interface WeddingData {
   title: string;
   subTitleTradisi: string;
+  heroPhoto?: string;
   couple: {
     groom: CoupleProfile;
     bride: CoupleProfile;
@@ -78,6 +79,7 @@ export interface WeddingData {
 export const weddingData: WeddingData = {
   title: "The Wedding of Diah & Made",
   subTitleTradisi: "Baralek Gadang — Pernikahan Adat Minangkabau",
+  heroPhoto: "/images/hero/hero-photo.jpg",
   couple: {
     groom: {
       fullName: "I Made Aryana Putra.",
@@ -85,7 +87,7 @@ export const weddingData: WeddingData = {
       titleTradisi: "Marapulai",
       father: "Bpk. I Wayan Suryawan",
       mother: "Ibu Ni Made Astuti",
-      photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
+      photo: "/images/profiles/made-profile.jpg",
       instagram: "@aryanaputra",
       bio: "Putra pertama yang penuh dedikasi, berprinsip kokoh, dan berhati tulus.",
     },
@@ -95,7 +97,7 @@ export const weddingData: WeddingData = {
       titleTradisi: "Anak Daro",
       father: "Alm. Bpk. Maraidijon.",
       mother: "Ibu Rina Mardiyah S.pd.",
-      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+      photo: "/images/profiles/diah-profile.jpg",
       instagram: "@diahinsani",
       bio: "Putri tercinta yang anggun, berhati lembut, dan senantiasa membawa kehangatan di tengah keluarga.",
     },
@@ -118,8 +120,8 @@ export const weddingData: WeddingData = {
       date: "Sabtu, 28 November 2026",
       isoDate: "2026-11-28",
       time: "08:00 - 10:00 WIB",
-      venue: "Rumah Mempelai Wanita",
-      address: "Jalan Dayung III C No. 6 ",
+      venue: "Kediaman Mempelai Wanita",
+      address: "Jl. Dayung IIIC No.6, RT.4/RW.6, Klp. Dua, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810",
       mapsUrl: "https://maps.app.goo.gl/vGJdqmPMKnoCSBZEA",
     },
     reception: {
@@ -128,8 +130,8 @@ export const weddingData: WeddingData = {
       date: "Sabtu, 28 November 2026",
       isoDate: "2026-11-28",
       time: "11:00 - 16:00 WIB",
-      venue: "Balai Gadang",
-      address: "Jl. Balai Gadang Raya No. 12, Kebayoran Baru, Jakarta Selatan",
+      venue: "Kediaman Mempelai Wanita",
+      address: "Jl. Dayung IIIC No.6, RT.4/RW.6, Klp. Dua, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810",
       mapsUrl: "https://maps.app.goo.gl/vGJdqmPMKnoCSBZEA",
     },
   },
@@ -139,58 +141,58 @@ export const weddingData: WeddingData = {
       title: "Mulo Basuo (Pertemuan Pertama)",
       description:
         "Sebuah perjumpaan tak terduga yang membuka ruang komunikasi penuh rasa saling menghargai dan menyatukan dua latar belakang yang saling melengkapi.",
-      photo: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80",
+      photo: "/images/story/story-1.jpg",
     },
     {
       year: "2022",
       title: "Manjalin Janji (Membangun Komitmen)",
       description:
         "Berjalan beriringan dalam suka dan duka, belajar saling mengerti dan menaruh keyakinan bahwa takdir sedang menenun perjalanan kami berdua.",
-      photo: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80",
+      photo: "/images/story/story-2.jpg",
     },
     {
       year: "2025",
       title: "Batimbang Tando (Hari Lamaran)",
       description:
         "Di hadapan keluarga besar dengan segenap adat dan kehormatan, cincin tanda kesungguhan disematkan sebagai ikrar menuju mahligai rumah tangga.",
-      photo: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80",
+      photo: "/images/story/story-3.jpg",
     },
     {
       year: "2026",
       title: "Baralek Gadang (Hari Bahagia)",
       description:
         "Dengan penuh rasa syukur dan doa restu niniak mamak serta kedua orang tua, kami melangkah bersama mengarungi samudera kehidupan.",
-      photo: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
+      photo: "/images/story/story-4.jpg",
     },
   ],
   gallery: [
     {
-      url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      url: "/images/gallery/gallery-1.jpg",
       caption: "Janji Suci dalam Keanggunan Tradisi",
       span: "tall",
     },
     {
-      url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80",
+      url: "/images/gallery/gallery-2.jpg",
       caption: "Duo Hati Manjalin Cinto",
       span: "wide",
     },
     {
-      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
+      url: "/images/gallery/gallery-3.jpg",
       caption: "Momen Penuh Kehangatan",
       span: "normal",
     },
     {
-      url: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80",
+      url: "/images/gallery/gallery-4.jpg",
       caption: "Saliang Manuntun Manuju Ridho-Nya",
       span: "normal",
     },
     {
-      url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80",
+      url: "/images/gallery/gallery-5.jpg",
       caption: "Cahaya Emas di Hari Bahagia",
       span: "wide",
     },
     {
-      url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80",
+      url: "/images/gallery/gallery-6.jpg",
       caption: "Langkah Abadi Berdua",
       span: "tall",
     },

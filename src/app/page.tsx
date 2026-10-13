@@ -14,6 +14,7 @@ import { GiftSection } from "@/components/gift/GiftSection";
 import { ClosingSection } from "@/components/closing/ClosingSection";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
 import { FloatingNav } from "@/components/navigation/FloatingNav";
+import { ScrollProgressBar } from "@/components/navigation/ScrollProgressBar";
 import { FallingPetals } from "@/components/ambient/FallingPetals";
 import { ShareModal, ShareFloatingButton } from "@/components/share/ShareModal";
 
@@ -32,6 +33,9 @@ function WeddingMain() {
 
   return (
     <main className="relative min-h-screen">
+      {/* 0. Top Scroll Progress Bar */}
+      <ScrollProgressBar isVisible={isOpen} />
+
       {/* 1. Opening Cover Overlay */}
       <OpeningScreen
         isOpen={isOpen}

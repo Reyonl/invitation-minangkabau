@@ -7,7 +7,6 @@ import { MailOpen, Sparkles } from "lucide-react";
 import { weddingData } from "@/config/weddingData";
 import { Button } from "@/components/ui/Button";
 import { RumahGadangSilhouette, MinangCorner, SuntiangIcon } from "@/components/ui/MinangOrnaments";
-import { TypewriterEffect } from "@/components/ui/TypewriterEffect";
 
 interface OpeningScreenProps {
   isOpen: boolean;
@@ -33,8 +32,9 @@ export function OpeningScreen({ isOpen, guestName, onOpen }: OpeningScreenProps)
           <div className="absolute inset-0 z-0 overflow-hidden">
             <Image
               src={
+                weddingData.heroPhoto ||
                 weddingData.gallery[0]?.url ||
-                "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85"
+                "/images/hero/hero-photo.jpg"
               }
               alt="Wedding Cover"
               fill
@@ -153,11 +153,11 @@ export function OpeningScreen({ isOpen, guestName, onOpen }: OpeningScreenProps)
               transition={{ duration: 0.9, delay: 0.85, ease: "easeOut" }}
               className="w-full bg-black/45 backdrop-blur-md border border-minang-gold/30 rounded-2xl py-4 px-5 mb-7 shadow-inner"
             >
-              <p className="text-[11px] sm:text-xs text-minang-gold-light/80 tracking-[0.2em] uppercase mb-2 font-medium h-[18px]">
-                <TypewriterEffect text="Kepada Yth. Bapak/Ibu/Saudara/i:" speed={40} delay={1400} />
+              <p className="text-[11px] sm:text-xs text-minang-gold-light/80 tracking-[0.2em] uppercase mb-1.5 font-medium">
+                Kepada Yth. Bapak/Ibu/Saudara/i:
               </p>
-              <p className="font-display text-2xl sm:text-3xl text-white font-light italic capitalize tracking-wide break-words leading-snug min-h-[36px] sm:min-h-[44px]">
-                <TypewriterEffect text={guestName} speed={55} delay={2800} />
+              <p className="font-display text-2xl sm:text-3xl text-white font-light italic capitalize tracking-wide break-words leading-snug">
+                {guestName}
               </p>
               <p className="text-[11px] text-minang-cream/60 mt-1.5 font-light">
                 di Tempat

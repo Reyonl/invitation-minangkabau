@@ -202,3 +202,159 @@ export function SuntiangIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+/**
+ * Siluet Gapura Candi Bentar Khas Bali (Animated Draw)
+ */
+export function BaliGateSilhouette({
+  className,
+  strokeColor = "currentColor",
+  fill = "none",
+  animate = true,
+}: {
+  className?: string;
+  strokeColor?: string;
+  fill?: string;
+  animate?: boolean;
+}) {
+  return (
+    <motion.svg
+      viewBox="0 0 240 120"
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+      initial={animate ? { opacity: 0, scale: 0.96 } : undefined}
+      whileInView={animate ? { opacity: 1, scale: 1 } : undefined}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className={cn("w-full max-w-[260px] h-auto pointer-events-none", className)}
+    >
+      {/* Left Tower of Candi Bentar */}
+      <path
+        d="M20 110 L 20 90 L 35 90 L 35 70 L 45 70 L 45 50 L 55 50 L 55 30 L 70 30 L 70 15 L 85 15 L 105 5 L 105 110 Z"
+        stroke={strokeColor}
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Left Details / Relief Horizontal Steps */}
+      <line x1="30" y1="90" x2="105" y2="90" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="40" y1="70" x2="105" y2="70" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="50" y1="50" x2="105" y2="50" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="65" y1="30" x2="105" y2="30" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+
+      {/* Right Tower of Candi Bentar (Mirrored) */}
+      <path
+        d="M220 110 L 220 90 L 205 90 L 205 70 L 195 70 L 195 50 L 185 50 L 185 30 L 170 30 L 170 15 L 155 15 L 135 5 L 135 110 Z"
+        stroke={strokeColor}
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Right Details / Relief Horizontal Steps */}
+      <line x1="135" y1="90" x2="210" y2="90" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="135" y1="70" x2="200" y2="70" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="135" y1="50" x2="190" y2="50" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+      <line x1="135" y1="30" x2="175" y2="30" stroke={strokeColor} strokeWidth="0.8" opacity="0.6" />
+
+      {/* Center Pathway Base Steps */}
+      <line x1="10" y1="112" x2="230" y2="112" stroke={strokeColor} strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="25" y1="116" x2="215" y2="116" stroke={strokeColor} strokeWidth="1" strokeLinecap="round" opacity="0.8" />
+    </motion.svg>
+  );
+}
+
+/**
+ * Ornamen Sudut Ukiran Khas Bali (Patra Punggel Motif)
+ */
+export function BaliCorner({
+  position,
+  className,
+  color = "#E07A5F",
+}: {
+  position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  className?: string;
+  color?: string;
+}) {
+  const rotation = {
+    "top-left": "rotate-0",
+    "top-right": "rotate-90",
+    "bottom-right": "rotate-180",
+    "bottom-left": "-rotate-90",
+  }[position];
+
+  const initialOffset = {
+    "top-left": { x: -8, y: -8 },
+    "top-right": { x: 8, y: -8 },
+    "bottom-right": { x: 8, y: 8 },
+    "bottom-left": { x: -8, y: 8 },
+  }[position];
+
+  return (
+    <motion.svg
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      initial={{ opacity: 0, ...initialOffset }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={cn("w-7 h-7 sm:w-8 sm:h-8 pointer-events-none", rotation, className)}
+    >
+      {/* Outer Border */}
+      <path d="M2 38 L 2 2 L 38 2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      {/* Balinese Floral Flame Scroll (Patra motif) */}
+      <path
+        d="M2 14 C 8 14, 12 10, 14 2 M6 24 C 14 24, 20 18, 24 6 M12 32 C 22 30, 30 22, 32 12"
+        stroke={color}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Flame Crest Dot */}
+      <circle cx="8" cy="8" r="1.5" fill={color} />
+      <polygon points="2,2 6,4 4,6" fill={color} />
+    </motion.svg>
+  );
+}
+
+/**
+ * Ikon Bunga Kamboja (Bunga Jepun Bali) 5 Kelopak
+ */
+export function KambojaFlower({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-5 h-5 inline-block text-bali-terracotta-light", className)}
+    >
+      {/* 5 Petals of Plumeria */}
+      <path
+        d="M16 16 C 14 11, 15 5, 18 4 C 21 3, 22 8, 16 16 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      <path
+        d="M16 16 C 21 14, 27 15, 28 18 C 29 21, 24 22, 16 16 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      <path
+        d="M16 16 C 18 21, 17 27, 14 28 C 11 29, 10 24, 16 16 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      <path
+        d="M16 16 C 11 18, 5 17, 4 14 C 3 11, 8 10, 16 16 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      <path
+        d="M16 16 C 12 12, 7 8, 9 5 C 11 2, 15 8, 16 16 Z"
+        fill="currentColor"
+        opacity="0.8"
+      />
+      {/* Center Golden Core */}
+      <circle cx="16" cy="16" r="2.2" fill="#E8CE75" />
+    </svg>
+  );
+}

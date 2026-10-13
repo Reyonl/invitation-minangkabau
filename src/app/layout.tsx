@@ -63,7 +63,7 @@ export default function RootLayout({
       lang="id"
       className={`${playfair.variable} ${cormorant.variable} ${plusJakarta.variable} scroll-smooth`}
     >
-      <body className="font-sans bg-minang-cream text-minang-charcoal min-h-screen selection:bg-minang-maroon selection:text-white antialiased">
+      <body className="font-sans bg-minang-maroon-deep text-minang-cream min-h-screen selection:bg-minang-gold selection:text-minang-charcoal antialiased">
         {children}
       </body>
     </html>
